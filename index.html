@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,13 @@
             --text: #e8eaf6;
             --text-dim: #9094a8;
             --grid: rgba(0, 212, 255, 0.1);
+            
+            /* Section-specific colors */
+            --bg-about: linear-gradient(180deg, #0a0e27 0%, #0d1129 100%);
+            --bg-projects: linear-gradient(180deg, #0d1129 0%, #0f132b 100%);
+            --bg-personal: linear-gradient(180deg, #0f132b 0%, #11152d 100%);
+            --bg-resume: linear-gradient(180deg, #11152d 0%, #13172f 100%);
+            --bg-contact: linear-gradient(180deg, #13172f 0%, #050812 100%);
         }
 
         * {
@@ -62,6 +69,12 @@
             z-index: 1000;
             border-bottom: 1px solid var(--accent);
             animation: slideDown 0.8s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(5, 8, 18, 0.98);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
         }
 
         @keyframes slideDown {
@@ -127,6 +140,60 @@
             animation-fill-mode: both;
         }
 
+        /* Progressive section backgrounds */
+        #about {
+            background: var(--bg-about);
+            margin-left: -100vw;
+            margin-right: -100vw;
+            padding-left: calc(100vw - 600px);
+            padding-right: calc(100vw - 600px);
+        }
+
+        #projects {
+            background: var(--bg-projects);
+            margin-left: -100vw;
+            margin-right: -100vw;
+            padding-left: calc(100vw - 600px);
+            padding-right: calc(100vw - 600px);
+            box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        #personal {
+            background: var(--bg-personal);
+            margin-left: -100vw;
+            margin-right: -100vw;
+            padding-left: calc(100vw - 600px);
+            padding-right: calc(100vw - 600px);
+            box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        #resume {
+            background: var(--bg-resume);
+            margin-left: -100vw;
+            margin-right: -100vw;
+            padding-left: calc(100vw - 600px);
+            padding-right: calc(100vw - 600px);
+            box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        #contact {
+            background: var(--bg-contact);
+            margin-left: -100vw;
+            margin-right: -100vw;
+            padding-left: calc(100vw - 600px);
+            padding-right: calc(100vw - 600px);
+            box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        /* Responsive section padding */
+        @media (max-width: 1200px) {
+            #about, #projects, #personal, #resume, #contact {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
         section:nth-child(2) { animation-delay: 0.1s; }
         section:nth-child(3) { animation-delay: 0.2s; }
         section:nth-child(4) { animation-delay: 0.3s; }
@@ -150,6 +217,10 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+        }
+
+        #about > * {
+            max-width: 1200px;
         }
 
         .hero-title {
@@ -766,7 +837,7 @@
             <div class="contact-card">
                 <div class="contact-icon">📧</div>
                 <h3>Email</h3>
-               <a href="mailto:aaiarmolenko@gmail.com target="_blank">aaiarmolenko@gmail.com</a>
+                <a href="/cdn-cgi/l/email-protection#6706060e06150a080b02090c0827000a060e0b4904080a"><span class="__cf_email__" data-cfemail="cfaeaea6aebda2a0a3aaa1a4a08fa8a2aea6a3e1aca0a2">[email&#160;protected]</span></a>
             </div>
 
             <div class="contact-card">
@@ -811,5 +882,23 @@
                 }
             });
 
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
 
-            document.querySelectorAll('nav a').forEach(link
+        // Update navbar on scroll
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
