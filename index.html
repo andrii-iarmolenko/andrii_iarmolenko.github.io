@@ -145,7 +145,6 @@
         section:nth-child(2) { animation-delay: 0.1s; }
         section:nth-child(3) { animation-delay: 0.2s; }
         section:nth-child(4) { animation-delay: 0.3s; }
-        section:nth-child(5) { animation-delay: 0.4s; }
 
         @keyframes fadeInUp {
             from {
@@ -304,84 +303,6 @@
             border-radius: 8px;
             margin-bottom: 1.5rem;
             border: 1px solid rgba(0, 212, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .project-card img:hover {
-            border-color: var(--accent);
-            transform: scale(1.02);
-            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
-        }
-
-        /* Image Modal/Lightbox */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal.active {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
-            animation: zoomIn 0.3s ease;
-        }
-
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 30px;
-            right: 50px;
-            color: var(--accent);
-            font-size: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .modal-close:hover {
-            color: var(--accent-warm);
-            transform: scale(1.2);
-        }
-
-        .modal-caption {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--text);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1.2rem;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            border: 1px solid var(--accent);
         }
 
         .project-card h3 {
@@ -590,7 +511,7 @@
         <h1 class="hero-title">ANDRII IARMOLENKO</h1>
         <p class="hero-subtitle">Mechanical Engineering Student</p>
         <p class="hero-description">
-            Fourth-year mechanical engineering student at The City College of New York with strong analytical training in AI/ML, 
+            Fourth-year mechanical engineering student at The City College of New York with skills and training in AI/ML, 
             finite element analysis, fluid mechanics, heat transfer, and materials science. Experienced in CAD design, optical system 
             optimization, and Arduino-based sensor systems. Currently working on wearable exoskeleton technology at the BIOWEAR Lab. 
             Passionate about applying engineering principles to solve real-world problems through research and innovation.
@@ -616,7 +537,7 @@
         <div class="projects-grid">
             <div class="project-card">
                 <span class="project-number">01</span>
-                <img src="exo_boot.png" alt="Wearable Exoskeleton Sensor System" onclick="openModal(this)">
+                <img src="exo_boot.png" alt="Wearable Exoskeleton Sensor System">
                 <h3>Wearable Exoskeleton Sensor System</h3>
                 <p>
                     Developing Arduino-controlled sensing system for a wearable exoskeleton at BIOWEAR Lab. Designed 
@@ -634,7 +555,7 @@
 
             <div class="project-card">
                 <span class="project-number">02</span>
-                <img src="lidar_poster.jpg" alt="LiDAR Optical System Optimization" onclick="openModal(this)">
+                <img src="lidar_poster.jpg" alt="LiDAR Optical System Optimization">
                 <h3>LiDAR Optical System Optimization</h3>
                 <p>
                     Improved LiDAR accuracy using Varioptic liquid lenses and a two-lens optical system through NSF REU 
@@ -653,7 +574,7 @@
 
             <div class="project-card">
                 <span class="project-number">03</span>
-                <img src="bicycle.png" alt="Bicycle Frame FEA Analysis" onclick="openModal(this)">
+                <img src="bicycle.png" alt="Bicycle Frame FEA Analysis">
                 <h3>Bicycle Frame FEA Analysis</h3>
                 <p>
                     Created detailed 3D model of a bicycle frame for Finite Element Analysis course. Performed structural 
@@ -670,7 +591,7 @@
 
             <div class="project-card">
                 <span class="project-number">04</span>
-                <img src="phone_stand.png" alt="3D Printed Workshop Solutions" onclick="openModal(this)">
+                <img src="phone_stand.png" alt="3D Printed Workshop Solutions">
                 <h3>3D Printed Workshop Solutions</h3>
                 <p>
                     Designed and fabricated custom workspace organizers using CAD and 3D printing. Created phone stands, 
@@ -802,7 +723,7 @@
             <div class="contact-card">
                 <div class="contact-icon">📧</div>
                 <h3>Email</h3>
-                <a href="/cdn-cgi/l/email-protection#bbdadad2dac9d6d4d7ded5d0d4fbdcd6dad2d795d8d4d6"><span class="__cf_email__" data-cfemail="3d5c5c545c4f505251585356527d5a505c5451135e5250">[email&#160;protected]</span></a>
+                <a href="mailto:aaiarmolenko@gmail.com">aaiarmolenko@gmail.com</a>
             </div>
 
             <div class="contact-card">
@@ -819,43 +740,7 @@
         </div>
     </section>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div class="modal-caption" id="modalCaption"></div>
-    </div>
-
     <script>
-        // Image Modal Functions
-        function openModal(img) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            const caption = document.getElementById('modalCaption');
-            
-            modal.classList.add('active');
-            modalImg.src = img.src;
-            caption.textContent = img.alt;
-            
-            // Prevent body scroll when modal is open
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.classList.remove('active');
-            
-            // Re-enable body scroll
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -893,4 +778,13 @@
                 }
             });
 
-            document.querySelectorAll('nav a').forEach(link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
